@@ -1,0 +1,5 @@
+FROM nginx:latest
+RUN sed -i 's/http {/&\n    resolver 127.0.0.11 valid=10s;/' /etc/nginx/nginx.conf
+# COPY  nginx_stream.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

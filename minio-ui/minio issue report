@@ -1,0 +1,37 @@
+Terminal 1:
+docker run -it --rm -v $PWD/data:/data -p 9000:9000 -p 9010:9010 quay.io/minio/minio:RELEASE.2022-06-20T23-13-45Z server --console-address :9010 /data
+
+Terminal 2:
+alias mc='docker run -it --rm -v $PWD/dotmc:/root/.mc minio/mc:RELEASE.2022-06-17T02-52-50Z'
+mc alias set admin http://host.docker.internal:9000 minioadmin minioadmin
+mc admin user add admin test minioadmin
+    policy:
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:CreateBucket",
+                        "s3:Get*",
+                        "s3:List*",
+                        "s3:Put*"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::li-*/*"
+                    ]
+                }
+            ]
+        }
+mc admin policy add admin li-readwrite /root/.mc/policy.json
+mc admin policy set admin li-readwrite user=test
+mc alias set user http://host.docker.internal:9000 test  minioadmin
+mc mb user/li-something             # verify CreateBucket permission
+mc cp -r /etc/ user/li-something/   # verify Put* Permission
+mc ls user/li-something/            # verify Get* and List* Permission
+
+# navigate to minio console on web browser with *user* credentials "test:minioadmin" and browse 'li-something' bucket
+http://localhost:9010/buckets
+
+2022-06-24T07:11:24.677 [404 Not Found] s3.GetBucketPolicy 172.17.0.3:9000/li-something/?policy=  172.17.0.3        349µs       ↑ 98 B ↓ 623 B
+2022-06-24T07:11:24.678 [404 Not Found] s3.GetBucketTagging 172.17.0.3:9000/li-something/?tagging=  172.17.0.3        494µs       ↑ 98 B ↓ 610 B

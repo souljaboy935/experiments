@@ -1,0 +1,93 @@
+Log file created at: 2022/05/15 11:49:51
+Binary: Built with gc go1.12.16 for linux/amd64
+Context: VERSION=v0.8.0 GO=go1.12.16 GOOS=linux GOARCH=amd64 SESSIONID=wajs HOSTNAME=f254f17f8fc5 USER=root MACHINE=b613679a PID=14
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0515 11:49:51.415391 flag.go:749] --------------------------------------------------------------------------------------------------------------
+I0515 11:49:51.424634 flag.go:751] Starting webchaind v0.8.0
+I0515 11:49:51.424758 flag.go:754] webchaind is configured to use blockchain: Webchain Mainnet
+I0515 11:49:51.424858 flag.go:758] Using chain database at: /root/.webchain/mainnet/chaindata
+I0515 11:49:51.424948 flag.go:761] 9 blockchain upgrades associated with this configuration:
+I0515 11:49:51.424996 flag.go:769]        1 Diehard
+I0515 11:49:51.425080 flag.go:772]     id: eip155
+I0515 11:49:51.425091 flag.go:774]         chainID: 101
+I0515 11:49:51.425138 flag.go:769]  2022222 Hardfork1
+I0515 11:49:51.425243 flag.go:772]     id: eip155
+I0515 11:49:51.425254 flag.go:774]         chainID: 24484
+I0515 11:49:51.425269 flag.go:769]  2022222 LYRA2
+I0515 11:49:51.425346 flag.go:769]  2619000 Hardfork2
+I0515 11:49:51.425429 flag.go:769]  2619000 LYRA2v2
+I0515 11:49:51.425498 flag.go:769]  3300001 Atlantis
+I0515 11:49:51.425607 flag.go:772]     id: difficulty
+I0515 11:49:51.425629 flag.go:774]         type: atlantis
+I0515 11:49:51.425642 flag.go:769]  3300001 Halving
+I0515 11:49:51.427865 flag.go:769]  3600001 Reward
+I0515 11:49:51.427986 flag.go:769]  5000001 Reward2
+I0515 11:49:51.428212 flag.go:785] Using 2 configured bootnodes
+I0515 11:49:51.428281 flag.go:788] Use Sputnik EVM: [32mfalse[39m
+I0515 11:49:51.428363 flag.go:791] --------------------------------------------------------------------------------------------------------------
+I0515 11:49:51.436385 accounts/cache.go:208] reloaded keys, cache has 1 accounts
+I0515 11:49:51.438530 accounts/cache.go:208] reloaded keys, cache has 1 accounts
+I0515 11:49:51.441236 accounts/cache.go:208] reloaded keys, cache has 1 accounts
+I0515 11:49:51.453582 ethdb/database.go:78] Allotted 1024MB cache and 1024 file handles to /root/.webchain/mainnet/chaindata
+I0515 11:49:51.524667 ethdb/database.go:78] Allotted 16MB cache and 16 file handles to /root/.webchain/mainnet/dapp
+I0515 11:49:51.609195 eth/backend.go:153] Protocol Versions: [63 62], Network Id: 37129, Chain Id: 24484
+I0515 11:49:51.613218 core/state/statedb.go:606] Trie cache stats after commit misses 0 unloads 0
+I0515 11:49:51.619101 eth/backend.go:188] Blockchain DB Version: 3
+I0515 11:49:51.619201 eth/backend.go:265] Successfully established mainnet genesis block: 0x78e066e78f30695e6c4218db4af16a670085b58e592378e864b40156b87a4c19
+I0515 11:49:51.621389 core/blockchain.go:739] Last header: #0 [78e066e7…] TD=1
+I0515 11:49:51.621450 core/blockchain.go:740] Last block: #0 [78e066e7…] TD=1
+I0515 11:49:51.621467 core/blockchain.go:741] Fast block: #0 [78e066e7…] TD=1
+I0515 11:49:51.621838 eth/downloader/downloader.go:1687] Quality of service: rtt 20s, conf 1.000, ttl 1m0s
+I0515 11:49:51.624506 p2p/server.go:337] Starting Server
+I0515 11:49:53.548558 p2p/nat/nat.go:132] Mapping network port: Network port udp:31440 could not be mapped: no UPnP or NAT-PMP router discovered
+I0515 11:49:53.792515 p2p/discover/udp.go:261] Listening, enode://72a56a4d2e95af14047f2c48bc569d0168c70bf650891784caf849d199c2f359b77ed39661b4767a3b504b4a631e2ed000a3a06e82913dc6b2387f322b1eeac4@[::]:31440
+I0515 11:49:53.793042 node/node.go:262] InProc registered *node.PrivateAdminAPI under 'admin'
+I0515 11:49:53.793073 node/node.go:262] InProc registered *node.PublicAdminAPI under 'admin'
+I0515 11:49:53.793093 node/node.go:262] InProc registered *node.PublicWeb3API under 'web3'
+I0515 11:49:53.793144 node/node.go:262] InProc registered *eth.PublicEthereumAPI under 'eth'
+I0515 11:49:53.793159 node/node.go:262] InProc registered *eth.PublicAccountAPI under 'eth'
+I0515 11:49:53.793292 node/node.go:262] InProc registered *eth.PrivateAccountAPI under 'personal'
+I0515 11:49:53.793533 node/node.go:262] InProc registered *eth.PublicBlockChainAPI under 'eth'
+I0515 11:49:53.793653 node/node.go:262] InProc registered *eth.PublicTransactionPoolAPI under 'eth'
+I0515 11:49:53.793695 node/node.go:262] InProc registered *eth.PublicMinerAPI under 'eth'
+I0515 11:49:53.793787 node/node.go:262] InProc registered *downloader.PublicDownloaderAPI under 'eth'
+I0515 11:49:53.793827 node/node.go:262] InProc registered *eth.PrivateMinerAPI under 'miner'
+I0515 11:49:53.793905 node/node.go:262] InProc registered *eth.PublicTxPoolAPI under 'txpool'
+I0515 11:49:53.793990 node/node.go:262] InProc registered *filters.PublicFilterAPI under 'eth'
+I0515 11:49:53.794011 node/node.go:262] InProc registered *eth.PrivateAdminAPI under 'admin'
+I0515 11:49:53.794120 p2p/nat/nat.go:132] Mapping network port: Network port tcp:31440 could not be mapped: no UPnP or NAT-PMP router discovered
+I0515 11:49:53.794124 node/node.go:262] InProc registered *eth.PublicDebugAPI under 'debug'
+I0515 11:49:53.794159 node/node.go:262] InProc registered *eth.PublicNetAPI under 'net'
+I0515 11:49:53.794176 p2p/server.go:621] Listening on [::]:31440
+I0515 11:49:53.794192 node/node.go:262] InProc registered *ethreg.PrivateRegistarAPI under 'admin'
+I0515 11:49:53.794612 node/node.go:262] InProc registered *eth.PublicGethAPI under 'geth'
+I0515 11:49:53.794792 node/node.go:288] IPC registered *node.PrivateAdminAPI under 'admin'
+I0515 11:49:53.794889 node/node.go:288] IPC registered *node.PublicAdminAPI under 'admin'
+I0515 11:49:53.794913 node/node.go:288] IPC registered *node.PublicWeb3API under 'web3'
+I0515 11:49:53.794982 node/node.go:288] IPC registered *eth.PublicEthereumAPI under 'eth'
+I0515 11:49:53.794998 node/node.go:288] IPC registered *eth.PublicAccountAPI under 'eth'
+I0515 11:49:53.795039 node/node.go:288] IPC registered *eth.PrivateAccountAPI under 'personal'
+I0515 11:49:53.795088 node/node.go:288] IPC registered *eth.PublicBlockChainAPI under 'eth'
+I0515 11:49:53.795153 node/node.go:288] IPC registered *eth.PublicTransactionPoolAPI under 'eth'
+I0515 11:49:53.795172 node/node.go:288] IPC registered *eth.PublicMinerAPI under 'eth'
+I0515 11:49:53.795185 node/node.go:288] IPC registered *downloader.PublicDownloaderAPI under 'eth'
+I0515 11:49:53.795215 node/node.go:288] IPC registered *eth.PrivateMinerAPI under 'miner'
+I0515 11:49:53.795229 node/node.go:288] IPC registered *eth.PublicTxPoolAPI under 'txpool'
+I0515 11:49:53.795261 node/node.go:288] IPC registered *filters.PublicFilterAPI under 'eth'
+I0515 11:49:53.795278 node/node.go:288] IPC registered *eth.PrivateAdminAPI under 'admin'
+I0515 11:49:53.795303 node/node.go:288] IPC registered *eth.PublicDebugAPI under 'debug'
+I0515 11:49:53.795326 node/node.go:288] IPC registered *eth.PublicNetAPI under 'net'
+I0515 11:49:53.795352 node/node.go:288] IPC registered *ethreg.PrivateRegistarAPI under 'admin'
+I0515 11:49:53.795371 node/node.go:288] IPC registered *eth.PublicGethAPI under 'geth'
+I0515 11:49:53.811604 node/node.go:299] IPC endpoint opened: /root/.webchain/mainnet/webchaind.ipc
+I0515 11:49:54.299092 p2p/discover/table.go:439] no seed nodes found
+I0515 11:49:58.305803 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:02.300067 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:06.300199 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:10.302163 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:11.622258 eth/downloader/downloader.go:1687] Quality of service: rtt 20s, conf 1.000, ttl 1m0s
+I0515 11:50:14.303290 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:18.303072 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:22.280805 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:26.282036 p2p/discover/table.go:439] no seed nodes found
+I0515 11:50:30.281385 p2p/discover/table.go:439] no seed nodes found

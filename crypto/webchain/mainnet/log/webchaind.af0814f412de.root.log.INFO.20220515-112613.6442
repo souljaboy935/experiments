@@ -1,0 +1,4 @@
+Log file created at: 2022/05/15 11:26:13
+Binary: Built with gc go1.12.16 for linux/amd64
+Context: VERSION=v0.8.0 GO=go1.12.16 GOOS=linux GOARCH=amd64 SESSIONID=Rgoc HOSTNAME=af0814f412de USER=root MACHINE=b613679a PID=6442
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-06-16T18:37:34Z"
+  labels:
+    app: test
+  name: test
+  namespace: default
+  resourceVersion: "1607009"
+  uid: c440a225-8fb6-4b02-864b-b087bdb48610
+spec:
+  clusterIP: 10.97.251.191
+  clusterIPs:
+  - 10.97.251.191
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: dns_port
+    nodePort: 31358
+    port: 10000
+    protocol: TCP
+    targetPort: 10000
+  - name: vnc_port
+    nodePort: 31518
+    port: 6901
+    protocol: TCP
+    targetPort: 6901
+  selector:
+    app: test
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

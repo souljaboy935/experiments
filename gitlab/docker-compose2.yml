@@ -1,0 +1,135 @@
+version: '3.9'
+
+x-domainname:
+  &dn
+  sbjk.local
+
+services:
+  db:
+    image: mysql:5.7
+    hostname: db.sbjk.local
+    networks: 
+      net:
+        ipv4_address: 10.0.0.2
+    dns:
+      - 10.0.0.6
+    domainname: *dn
+    dns_search: *dn
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: postfixadmin
+      MYSQL_USER: postfixadmin
+      MYSQL_PASSWORD: example
+
+  postfix:
+    hostname: postfixadmin
+    depends_on:
+      - db
+    networks: 
+      net:
+        ipv4_address: 10.0.0.3
+    image: postfixadmin
+    dns:
+      - 10.0.0.6
+    domainname: *dn
+    dns_search: *dn
+    # expose:
+    #   - 143
+    ports: []
+      # - 8000:80
+    restart: always
+    environment:
+      POSTFIXADMIN_DB_TYPE: mysqli
+      POSTFIXADMIN_DB_HOST: db
+      POSTFIXADMIN_DB_USER: postfixadmin
+      POSTFIXADMIN_DB_NAME: postfixadmin
+      POSTFIXADMIN_DB_PASSWORD: example
+      # POSTFIXADMIN_SETUP_PASSWORD: zxcvbnm123
+
+  # gitlab:
+  #   image: gitlab/gitlab-ce
+  #   restart: always
+  #   networks: *gitlab
+  #    ipv4_address: 10.0.0.4
+  #   hostname: 'gitlab.sbjk.local'
+  #   environment:
+  #     GITLAB_ROOT_PASSWORD: zxcvbnm123
+  #     GITLAB_OMNIBUS_CONFIG: |
+  #       external_url 'https://gitlab.sbjk.local'
+  #       # Add any other gitlab.rb configuration here, each on its own line
+  #   ports:
+  #     - '180:80'
+  #     - '1443:443'
+  #     - '122:22'
+  #   volumes:
+  #     - 'gitlab_config:/etc/gitlab/'
+  #     - 'gitlab_logs:/var/log/gitlab/'
+  #     - 'gitlab_home:/var/opt/gitlab/'
+  #   shm_size: '256m'
+
+  vnc:
+    image: consol/ubuntu-xfce-vnc
+    hostname: vnc
+    user: 0:0
+    networks: 
+      net:
+        ipv4_address: 10.0.0.5
+    dns:
+      - 10.0.0.6
+    domainname: *dn
+    dns_search: *dn
+    ports:
+      # - 5901:5901
+      - 6901:6901
+
+  gitdns:
+    image: sameersbn/bind
+    networks: 
+      net:
+        ipv4_address: 10.0.0.6
+    hostname: gitdns
+    domainname: *dn
+    dns_search: *dn
+    environment:
+      - ROOT_PASSWORD=zxcvbnm123
+    volumes:
+      - gitlab_bind:/data
+    ports: []
+      # - 153:53/tcp
+      # - 253:53/udp
+      # - 10000:10000
+
+  # gitdns:
+  #   image: ubuntu/bind9
+  #   hostname: gitdns
+  #   networks: 
+  #     net:
+  #       ipv4_address: 10.0.0.6
+  #   domainname: *dn
+  #   dns_search: *dn
+  #   ports:
+  #     - 153:53/tcp
+  #     - 253:53/udp
+  #     - 1953:953
+  #   environment:
+  #     - TZ="GMT+4"
+
+volumes:
+  gitlab_config:
+    external: true
+  gitlab_logs:
+    external: true
+  gitlab_home:
+    external: true
+  gitlab_bind:
+    external: true
+  mysql_data:
+
+networks:
+  net:
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24

@@ -1,0 +1,68 @@
+version: '3.9'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk11
+    hostname: jenkins
+    container_name: jenkins
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    expose:
+      - 50000
+      - 8080
+    # ports:
+    #   - 50000:50000
+    #   - 8080:8080
+    networks:
+      jenk:
+        # ipv4_address: 172.17.0.2
+  
+  ansible:
+    build: 
+      context: .
+      dockerfile: Dockerfile_ans
+    hostname: ansible
+    volumes:
+      - ansible_cont:/etc/ansible/
+    command: ["sleep", "infinity"]
+    networks:
+      ans:
+      jenk:
+        # ipv4_address: 172.17.0.3
+
+  nginx:
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile_nginx
+    image: nginx:latest
+    hostname: nginx
+    container_name: nginx
+    depends_on:
+      - jenkins
+    volumes: 
+      - /Users/sulaiman/Projects/experiments/jenkins/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 1004:80
+    networks:
+      - jenk
+  
+  redis:
+    image: redis:latest
+    hostname: redis
+    expose:
+      - 6379
+    networks:
+      - ans
+
+
+volumes:
+  jenkins_home:
+    # external: true
+  ansible_cont:
+    external: true
+
+networks:
+  ans:
+  jenk:
+    # ipam:
+    #   config:
+    #     - subnet: 172.17.0.0/20

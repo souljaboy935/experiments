@@ -1,0 +1,101 @@
+Log file created at: 2022/05/19 07:07:17
+Binary: Built with gc go1.12.16 for linux/amd64
+Context: VERSION=v0.8.0 GO=go1.12.16 GOOS=linux GOARCH=amd64 SESSIONID=WvHi HOSTNAME=45a96e097c8a USER=root MACHINE=b613679a PID=1
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0519 07:07:17.514338 flag.go:749] --------------------------------------------------------------------------------------------------------------
+I0519 07:07:17.524758 flag.go:751] Starting webchaind v0.8.0
+I0519 07:07:17.524822 flag.go:754] webchaind is configured to use blockchain: Webchain Mainnet
+I0519 07:07:17.524856 flag.go:758] Using chain database at: /root/.webchain/mainnet/chaindata
+I0519 07:07:17.524881 flag.go:761] 9 blockchain upgrades associated with this configuration:
+I0519 07:07:17.524933 flag.go:769]        1 Diehard
+I0519 07:07:17.524959 flag.go:772]     id: eip155
+I0519 07:07:17.524984 flag.go:774]         chainID: 101
+I0519 07:07:17.524997 flag.go:769]  2022222 Hardfork1
+I0519 07:07:17.525041 flag.go:772]     id: eip155
+I0519 07:07:17.525056 flag.go:774]         chainID: 24484
+I0519 07:07:17.525067 flag.go:769]  2022222 LYRA2
+I0519 07:07:17.525114 flag.go:769]  2619000 Hardfork2
+I0519 07:07:17.525159 flag.go:769]  2619000 LYRA2v2
+I0519 07:07:17.525183 flag.go:769]  3300001 Atlantis
+I0519 07:07:17.525233 flag.go:772]     id: difficulty
+I0519 07:07:17.525245 flag.go:774]         type: atlantis
+I0519 07:07:17.525266 flag.go:769]  3300001 Halving
+I0519 07:07:17.525324 flag.go:769]  3600001 Reward
+I0519 07:07:17.525353 flag.go:769]  5000001 Reward2
+I0519 07:07:17.525407 flag.go:785] Using 2 configured bootnodes
+I0519 07:07:17.525457 flag.go:788] Use Sputnik EVM: [32mfalse[39m
+I0519 07:07:17.525512 flag.go:791] --------------------------------------------------------------------------------------------------------------
+I0519 07:07:17.651186 accounts/cache.go:208] reloaded keys, cache has 1 accounts
+I0519 07:07:17.657232 accounts/cache.go:208] reloaded keys, cache has 1 accounts
+I0519 07:07:18.516224 accountcmd.go:242] Unlocked account 5547084b1a0eab05af2bd8d15464279c320c7114
+I0519 07:07:18.523399 ethdb/database.go:78] Allotted 1024MB cache and 1024 file handles to /root/.webchain/mainnet/chaindata
+I0519 07:07:18.878315 ethdb/database.go:78] Allotted 16MB cache and 16 file handles to /root/.webchain/mainnet/dapp
+I0519 07:07:19.042511 eth/backend.go:153] Protocol Versions: [63 62], Network Id: 37129, Chain Id: 24484
+I0519 07:07:19.044182 core/state/statedb.go:606] Trie cache stats after commit misses 0 unloads 0
+I0519 07:07:19.044864 core/config.go:803] Genesis block 0x78e066e78f30695e6c4218db4af16a670085b58e592378e864b40156b87a4c19 already exists in chain -- writing canonical number
+I0519 07:07:19.046228 eth/backend.go:188] Blockchain DB Version: 3
+I0519 07:07:19.046338 eth/backend.go:265] Successfully established mainnet genesis block: 0x78e066e78f30695e6c4218db4af16a670085b58e592378e864b40156b87a4c19
+I0519 07:07:19.047433 core/blockchain.go:739] Last header: #0 [78e066e7…] TD=1
+I0519 07:07:19.047461 core/blockchain.go:740] Last block: #0 [78e066e7…] TD=1
+I0519 07:07:19.047479 core/blockchain.go:741] Fast block: #0 [78e066e7…] TD=1
+I0519 07:07:19.047875 eth/downloader/downloader.go:1687] Quality of service: rtt 20s, conf 1.000, ttl 1m0s
+I0519 07:07:19.048063 p2p/server.go:337] Starting Server
+I0519 07:07:19.048494 node/node.go:262] InProc registered *node.PrivateAdminAPI under 'admin'
+I0519 07:07:19.048537 node/node.go:262] InProc registered *node.PublicAdminAPI under 'admin'
+I0519 07:07:19.048570 node/node.go:262] InProc registered *node.PublicWeb3API under 'web3'
+I0519 07:07:19.048723 node/node.go:262] InProc registered *eth.PublicEthereumAPI under 'eth'
+I0519 07:07:19.048741 node/node.go:262] InProc registered *eth.PublicAccountAPI under 'eth'
+I0519 07:07:19.048807 node/node.go:262] InProc registered *eth.PrivateAccountAPI under 'personal'
+I0519 07:07:19.048924 node/node.go:262] InProc registered *eth.PublicBlockChainAPI under 'eth'
+I0519 07:07:19.048995 node/node.go:262] InProc registered *eth.PublicTransactionPoolAPI under 'eth'
+I0519 07:07:19.050227 p2p/server.go:621] Listening on [::]:31440
+I0519 07:07:19.050478 node/node.go:262] InProc registered *eth.PublicMinerAPI under 'eth'
+I0519 07:07:19.050502 node/node.go:262] InProc registered *downloader.PublicDownloaderAPI under 'eth'
+I0519 07:07:19.050528 node/node.go:262] InProc registered *eth.PrivateMinerAPI under 'miner'
+I0519 07:07:19.050571 node/node.go:262] InProc registered *eth.PublicTxPoolAPI under 'txpool'
+I0519 07:07:19.050652 node/node.go:262] InProc registered *filters.PublicFilterAPI under 'eth'
+I0519 07:07:19.050684 node/node.go:262] InProc registered *eth.PrivateAdminAPI under 'admin'
+I0519 07:07:19.050724 node/node.go:262] InProc registered *eth.PublicDebugAPI under 'debug'
+I0519 07:07:19.050741 node/node.go:262] InProc registered *eth.PublicNetAPI under 'net'
+I0519 07:07:19.050769 node/node.go:262] InProc registered *ethreg.PrivateRegistarAPI under 'admin'
+I0519 07:07:19.050810 node/node.go:262] InProc registered *eth.PublicGethAPI under 'geth'
+I0519 07:07:19.050830 node/node.go:288] IPC registered *node.PrivateAdminAPI under 'admin'
+I0519 07:07:19.050846 node/node.go:288] IPC registered *node.PublicAdminAPI under 'admin'
+I0519 07:07:19.050856 node/node.go:288] IPC registered *node.PublicWeb3API under 'web3'
+I0519 07:07:19.050875 node/node.go:288] IPC registered *eth.PublicEthereumAPI under 'eth'
+I0519 07:07:19.050884 node/node.go:288] IPC registered *eth.PublicAccountAPI under 'eth'
+I0519 07:07:19.050906 node/node.go:288] IPC registered *eth.PrivateAccountAPI under 'personal'
+I0519 07:07:19.050945 node/node.go:288] IPC registered *eth.PublicBlockChainAPI under 'eth'
+I0519 07:07:19.050980 node/node.go:288] IPC registered *eth.PublicTransactionPoolAPI under 'eth'
+I0519 07:07:19.050993 node/node.go:288] IPC registered *eth.PublicMinerAPI under 'eth'
+I0519 07:07:19.051006 node/node.go:288] IPC registered *downloader.PublicDownloaderAPI under 'eth'
+I0519 07:07:19.051020 node/node.go:288] IPC registered *eth.PrivateMinerAPI under 'miner'
+I0519 07:07:19.051029 node/node.go:288] IPC registered *eth.PublicTxPoolAPI under 'txpool'
+I0519 07:07:19.051052 node/node.go:288] IPC registered *filters.PublicFilterAPI under 'eth'
+I0519 07:07:19.051067 node/node.go:288] IPC registered *eth.PrivateAdminAPI under 'admin'
+I0519 07:07:19.051090 node/node.go:288] IPC registered *eth.PublicDebugAPI under 'debug'
+I0519 07:07:19.051100 node/node.go:288] IPC registered *eth.PublicNetAPI under 'net'
+I0519 07:07:19.051117 node/node.go:288] IPC registered *ethreg.PrivateRegistarAPI under 'admin'
+I0519 07:07:19.051131 node/node.go:288] IPC registered *eth.PublicGethAPI under 'geth'
+I0519 07:07:19.057529 node/node.go:359] HTTP registered *node.PublicWeb3API under 'web3'
+I0519 07:07:19.057582 node/node.go:359] HTTP registered *eth.PublicEthereumAPI under 'eth'
+I0519 07:07:19.057594 node/node.go:359] HTTP registered *eth.PublicAccountAPI under 'eth'
+I0519 07:07:19.057725 node/node.go:359] HTTP registered *eth.PublicBlockChainAPI under 'eth'
+I0519 07:07:19.058204 node/node.go:359] HTTP registered *eth.PublicTransactionPoolAPI under 'eth'
+I0519 07:07:19.058589 node/node.go:359] HTTP registered *eth.PublicMinerAPI under 'eth'
+I0519 07:07:19.058692 node/node.go:359] HTTP registered *downloader.PublicDownloaderAPI under 'eth'
+I0519 07:07:19.058770 node/node.go:359] HTTP registered *filters.PublicFilterAPI under 'eth'
+I0519 07:07:19.058800 node/node.go:359] HTTP registered *eth.PublicNetAPI under 'net'
+I0519 07:07:19.059266 node/node.go:371] HTTP endpoint opened: http://0.0.0.0:39573
+I0519 07:07:19.059472 log_context.go:314] Debug log configuration v= 5 logdir= /root/.webchain/mainnet/log vmodule= *
+I0519 07:07:19.059569 log_context.go:321] Display log configuration d= 3 status= sync=1m0s
+I0519 07:07:19.059814 log_context.go:331] Machine log config: mlog=json mlog-dir=
+I0519 07:07:19.059945 miner/miner.go:133] Starting mining operation (CPU=4 TOT=5)
+I0519 07:07:19.062440 miner/worker.go:576] commit new work on block 1 with 0 txs & 0 uncles. Took 1.915796ms
+I0519 07:07:19.062524 miner/agent.go:118] (re)started agent[3]. mining...
+I0519 07:07:19.062567 miner/agent.go:118] (re)started agent[0]. mining...
+I0519 07:07:19.062579 miner/agent.go:118] (re)started agent[1]. mining...
+I0519 07:07:19.064275 node/node.go:299] IPC endpoint opened: /root/.webchain/mainnet/webchaind.ipc
+I0519 07:07:19.064443 miner/agent.go:118] (re)started agent[2]. mining...
+I0519 07:07:20.617736 p2p/nat/nat.go:132] Mapping network port: Network port tcp:31440 could not be mapped: no UPnP or NAT-PMP router discovered
+I0519 07:07:39.048011 eth/downloader/downloader.go:1687] Quality of service: rtt 20s, conf 1.000, ttl 1m0s

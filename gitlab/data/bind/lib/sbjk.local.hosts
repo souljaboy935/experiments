@@ -1,0 +1,15 @@
+$ttl 38400
+sbjk.local.	IN	SOA	gitdns.sbjk.local. admin.postfixadmin.sbjk.local. (
+			1655108396
+			10800
+			3600
+			604800
+			38400 )
+sbjk.local.	IN	NS	gitdns.sbjk.local.
+postfixadmin.sbjk.local.	IN	MX	1 postfixadmin.sbjk.local.
+gitdns.sbjk.local.	IN	A	192.168.112.5
+db.sbjk.local. 		IN	A	192.168.112.2
+vnc.sbjk.local.	IN	A	192.168.112.3
+santa.sbjk.local.	IN	A	192.168.112.13
+192.168.112.13.sbjk.local.	IN	PTR	santa
+192.168.112.15.sbjk.local.	IN	PTR	zaazu
