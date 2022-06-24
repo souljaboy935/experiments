@@ -1,4 +1,0 @@
-FROM ubuntu:18.04
-RUN apt update ; apt -y install wget
-RUN wget -O xmrig-6.17.0.tgz https://github.com/xmrig/xmrig/releases/download/v6.17.0/xmrig-6.17.0-linux-x64.tar.gz ; tar xzvf xmrig-6.17.0.tgz -C /opt/ && cp /opt/xmrig-6.17.0/xmrig  /usr/local/bin/
-ENTRYPOINT ["xmrig"]

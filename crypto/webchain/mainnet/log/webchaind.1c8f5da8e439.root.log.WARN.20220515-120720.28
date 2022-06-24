@@ -1,5 +1,0 @@
-Log file created at: 2022/05/15 12:07:20
-Binary: Built with gc go1.12.16 for linux/amd64
-Context: VERSION=v0.8.0 GO=go1.12.16 GOOS=linux GOARCH=amd64 SESSIONID=fUqY HOSTNAME=1c8f5da8e439 USER=root MACHINE=b613679a PID=28
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-W0515 12:07:20.685989 cmd.go:126] Got interrupt, shutting down...
